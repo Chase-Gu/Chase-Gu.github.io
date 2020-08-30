@@ -37,11 +37,11 @@ tags:
 
 * 3.1 传输层服务
 * 3.2 复用和分用
-* [3.3 无连接传输协议-UDP](https://chase-gu.github.io/2019/11/06/network-udp/)
-* [3.4 可靠数据传输原理](https://chase-gu.github.io/2019/11/06/network-rdt/)
-* [3.5 滑动窗口协议](https://chase-gu.github.io/2019/12/16/network-sliding-window-protocol/)
-* [3.6 面向连接传输协议-TCP](https://chase-gu.github.io/2019/12/17/network-tcp/)
-* 3.7 拥塞控制原理
+* [3.3 无连接传输协议-UDP](/2019/11/06/network-udp/)
+* [3.4 可靠数据传输原理](/2019/11/06/network-rdt/)
+* [3.5 滑动窗口协议](/2019/12/16/network-sliding-window-protocol/)
+* [3.6 面向连接传输协议-TCP](/2019/12/17/network-tcp/)
+* [3.7 拥塞控制原理](/2019/12/18/network-congestion-control/)
 * 3.8 TCP拥塞控制
 
 ##### 第四章
