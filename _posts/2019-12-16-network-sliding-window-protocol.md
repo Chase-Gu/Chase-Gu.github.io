@@ -13,7 +13,7 @@ tags:
 
 # 3.5 滑动窗口协议
 
-**目录：[计算机网络-课程笔记目录](https://gushichen.gitee.io/2019/10/31/network-catalog/)**
+**目录：[计算机网络-课程笔记目录](https://chase-gu.github.io/2019/10/31/network-catalog/)**
 
 
 

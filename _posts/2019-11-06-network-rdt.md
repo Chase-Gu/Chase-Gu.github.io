@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      Reliable Data Transmission
-subtitle:   可靠数据传输原理
+title:      可靠数据传输原理
+subtitle:   Reliable Data Transmission
 date:       2019-11-06
 author:     Chase Gu
 header-img: img/post-bg-os-metro.jpg

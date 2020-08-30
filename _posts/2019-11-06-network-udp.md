@@ -14,7 +14,7 @@ tags:
 
 # 3.3 无连接传输协议-UDP
 
-**目录：[计算机网络-课程笔记目录](https://gushichen.gitee.io/2019/10/31/network-catalog/)**
+**目录：[计算机网络-课程笔记目录](https://chase-gu.github.io/2019/10/31/network-catalog/)**
 
 
 
