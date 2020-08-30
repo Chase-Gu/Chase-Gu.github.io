@@ -1,0 +1,180 @@
+---
+layout: page
+title: "Friends"
+description: "Chase Gu's Friend Links"
+header-img: "img/post-bg-rwd.jpg"
+---
+
+<style>
+    .friends-container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .friends-container>header {
+        font-size: 20px;
+        margin: 20px 0 20px 0;
+        text-align: center;
+    }
+
+    .friends-container>section {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: wrap;
+    }
+
+    .friends-container>section>div {
+        width: 50%;
+        margin: 10px 0;
+        box-sizing: border-box;
+        display: flex;
+        align-content: center;
+    }
+
+    .friends-container>section>div>img {
+        border-radius: 100%;
+        width: 50px;
+        height: 50px;
+        margin: 0 10px;
+        transition: .3s;
+    }
+
+    .friends-container>section>div>a>img {
+        border-radius: 100%;
+        width: 50px;
+        height: 50px;
+        margin: 0 10px;
+        transition: .3s;
+        /* float配合行高使得文字垂直居中 */
+        float: left;
+    }
+
+    .friends-container>section>div>a>img:hover {
+        transform: rotateZ(20deg);
+    }
+
+    .friends-container>section>div>a {
+        text-decoration: none;
+        line-height: 50px;
+        text-align: center;
+    }
+</style>
+
+<article class="friends-container">
+    <header>大佬名单</header>
+    <hr>
+    <section>
+        {% for friend in site.friends %}
+        {% if friend.portrait %}
+        <div>
+            <a href="{{friend.href}}">
+                <img src="{{friend.portrait}}">
+                {{friend.title}}
+            </a>
+        </div>
+        {% endif %}
+        {% endfor %}
+        <!-- <div>
+            <a href="https://blog.soarless.com/">
+                <img src="https://blog.soarless.com/wp-content/themes/argon/assets/img/theme/avator.png">
+                Soarless | 随笔
+            </a>
+        </div>
+        <div>
+            <a href="http://www.steinshead.club/"><img src="http://www.steinshead.club/img/wife.png">
+                Christina
+            </a>
+        </div> -->
+    </section>
+</article>
+
+<!-- Handle Language Change -->
+<script type="text/javascript">
+    // get nodes
+    var $zh = document.querySelector(".zh");
+    var $en = document.querySelector(".en");
+    var $select = document.querySelector("select");
+
+    // bind hashchange event
+    window.addEventListener('hashchange', _render);
+
+    // handle render
+    function _render() {
+        var _hash = window.location.hash;
+        // en
+        if (_hash == "#en") {
+            $select.selectedIndex = 1;
+            $en.style.display = "block";
+            $zh.style.display = "none";
+            // zh by default
+        } else {
+            // not trigger onChange, otherwise cause a loop call.
+            $select.selectedIndex = 0;
+            $zh.style.display = "block";
+            $en.style.display = "none";
+        }
+    }
+
+    // handle select change
+    function onLanChange(index) {
+        if (index == 0) {
+            window.location.hash = "#zh"
+        } else {
+            window.location.hash = "#en"
+        }
+    }
+
+    // init
+    _render();
+</script>
+
+
+<!-- Gitalk 评论 start
+{% if site.gitalk.enable %}
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+    <script type="text/javascript">
+    var gitalk = new Gitalk({
+    clientID: '{{site.gitalk.clientID}}',
+    clientSecret: '{{site.gitalk.clientSecret}}',
+    repo: '{{site.gitalk.repo}}',
+    owner: '{{site.gitalk.owner}}',
+    admin: ['{{site.gitalk.admin}}'],
+    distractionFreeMode: {{site.gitalk.distractionFreeMode}},
+    id: 'about',
+    });
+    gitalk.render('gitalk-container');
+</script>
+{% endif %}
+Gitalk end -->
+
+<!-- disqus 评论框 start  -->
+{% if site.disqus.enable %}
+
+<div class="comment">
+    <div id="disqus_thread" class="disqus-thread">
+    </div>
+</div>
+<!-- disqus 评论框 end -->
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "{{site.disqus.username}}";
+    var disqus_identifier = "{{site.disqus.username}}/{{page.url}}";
+    var disqus_url = "{{site.url}}{{page.url}}";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+{% endif %}
