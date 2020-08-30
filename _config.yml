@@ -5,7 +5,7 @@ header-img: img/post-bg-sea.jpg
 email: 183685540@qq.com
 description: "Chase Gu Blog"
 keyword: ""
-url: "https://chase-gu.github.io/"              # your host, for absolute URL
+url: "https://github.com/Chase-Gu/Chase-Gu.github.io.git"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
@@ -118,6 +118,20 @@ friends: [
         title: "Christina",
         href: "http://www.steinshead.club",
         portrait: "http://www.steinshead.club/img/wife.png"
+    }
+]
+
+# Index.html Navigator
+index-navigator: [
+    {
+        title: "Gitee",
+        href: "https://gitee.com/gushichen"
+    }, {
+        title: "Github",
+        href: "https://github.com/Chase-Gu"
+    }, {
+        title: "Study Notes",
+        href: "https://chase-gu.github.io/2-tags/#%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
     }
 ]
 

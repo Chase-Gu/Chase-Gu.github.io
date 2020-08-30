@@ -3,6 +3,14 @@ layout: page
 description: "Chase Gu Blog"
 ---
 
+<ul class="pager">
+    {% for navigator in site.index-navigator %}
+    <li class="next">
+        <a href="{{ navigator.href }}" data-toggle="tooltip" data-placement="top" title="{{ navigator.title }}">{{ navigator.title }}<br></a>
+    </li>
+    {% endfor %}                     
+</ul>
+
 {% for post in paginator.posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
