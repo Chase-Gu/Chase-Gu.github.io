@@ -105,8 +105,8 @@ page-mathjax: false
 # Friends
 friends: [
     {
-        title: "Gitee主页",
-        href: "https://gitee.com/gushichen"
+        title: "Gitee Blog",
+        href: "https://gushichen.gitee.io"
     },{
         title: "博客园-ChaseGu",
         href: "https://www.cnblogs.com/ChaseGu"
