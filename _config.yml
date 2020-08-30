@@ -80,7 +80,7 @@ ga_domain: huangxuan.me
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "A software engineering fw"
-sidebar-avatar: /img/about-chase.jpg        # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/avator-chase.jpg        # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
