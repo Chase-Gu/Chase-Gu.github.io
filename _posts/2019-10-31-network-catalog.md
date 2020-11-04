@@ -5,6 +5,7 @@ subtitle:   Computer Networking Notes Catalog
 date:       2019-10-31
 author:     Chase Gu
 header-img: img/post-bg-os-metro.jpg
+hide: false
 catalog: true
 tags:
     - 学习笔记

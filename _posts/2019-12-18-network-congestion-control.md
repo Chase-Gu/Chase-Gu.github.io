@@ -5,6 +5,7 @@ subtitle:   Congestion Control
 date:       2019-12-18 11:44
 author:     Chase Gu
 header-img: img/post-bg-os-metro.jpg
+hide: false
 catalog: true
 tags:
     - 学习笔记
@@ -12,6 +13,10 @@ tags:
 ---
 
 # 3.7 拥塞控制原理
+
+**目录：[计算机网络-课程笔记目录](https://gushichen.gitee.io/2019/10/31/network-catalog/)**
+
+
 
 ### 前言
 
@@ -38,7 +43,7 @@ tags:
 
 * 拥塞时分组延迟太大，达到最大throughput（吞吐率）
 
-* ![拥塞场景1](/img-post/2019-12-18-network-congestion-control/拥塞场景1.png)
+* <a href="/img-post/2019-12-18-network-congestion-control/拥塞场景1.png">![拥塞场景1](/img-post/2019-12-18-network-congestion-control/拥塞场景1.png)</a>
 
   * C为带宽，当发送速率超过C/2时，接收速率只能是一个恒定值，**此时达到最大吞吐率**
   * 当λ靠近C/2时，**时延无限大**
@@ -65,7 +70,7 @@ tags:
 
 * 情况c：分组丢失和定时器超时后都重发，λ’in变得更大
 
-* ![拥塞场景2](/img-post/2019-12-18-network-congestion-control/拥塞场景2.png)
+* <a href="/img-post/2019-12-18-network-congestion-control/拥塞场景2.png">![拥塞场景2](/img-post/2019-12-18-network-congestion-control/拥塞场景2.png)</a>
 
 * 拥塞代价
 
@@ -77,11 +82,11 @@ tags:
 
 * 多跳
 * 超时、丢失时重传
-* ![拥塞场景3](/img-post/2019-12-18-network-congestion-control/拥塞场景3.png)
+* <a href="/img-post/2019-12-18-network-congestion-control/拥塞场景3.png">![拥塞场景3](/img-post/2019-12-18-network-congestion-control/拥塞场景3.png)</a>
 * 另一个代价
   * 红线和绿线竞争，如果红线的分组到到达了R2，意味着R1已经成功地处理了转发路由。但是如果该分组在R2丢弃了，**意味着在R1的操作白费了**
   * 当分组被丢弃时，任何用于该分组的“**上游**”传输能力全部被**浪费**掉
-* ![拥塞场景3_2](/img-post/2019-12-18-network-congestion-control/拥塞场景3_2.png)
+* <a href="/img-post/2019-12-18-network-congestion-control/拥塞场景3_2.png"><img src="/img-post/2019-12-18-network-congestion-control/拥塞场景3_2.png"></a>
   * 可以看到当λ'in很大的时候λout几乎为0，意味着**网络瘫痪**
 
 

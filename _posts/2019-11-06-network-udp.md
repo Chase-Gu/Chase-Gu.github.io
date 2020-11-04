@@ -5,6 +5,7 @@ subtitle:   Connectionless transport protocol-UDP
 date:       2019-11-06
 author:     Chase Gu
 header-img: img/post-bg-os-metro.jpg
+hide: false
 catalog: true
 tags:
     - 学习笔记
@@ -65,7 +66,7 @@ tags:
 
 * UDP报文段
 
-  ![UDP报文段](/img-post/2019-12-16-network-udp/UDP报文段.png)
+  <a href="/img-post/2019-12-16-network-udp/UDP报文段.png">![UDP报文段](/img-post/2019-12-16-network-udp/UDP报文段.png)</a>
 
 
 

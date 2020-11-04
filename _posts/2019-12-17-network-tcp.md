@@ -5,6 +5,7 @@ subtitle:   Connection oriented transport protocol-TCP
 date:       2019-12-17
 author:     Chase Gu
 header-img: img/post-bg-os-metro.jpg
+hide: false
 catalog: true
 tags:
     - 学习笔记
@@ -184,7 +185,7 @@ tags:
   - 我收到了你同意建立连接的报文段
   - **可以携带数据，这里应该就可以请求数据了如果时HTTP的话**
     - 所以非持续HTTP一个对象需要两个RTT
-- ![TCP连接](/img-post/2019-12-22-network-tcp/TCP连接.jpg)
+- <a href="/img-post/2019-12-22-network-tcp/TCP连接.jpg">![TCP连接](/img-post/2019-12-22-network-tcp/TCP连接.jpg)</a>
   - 第二次握手：ack是我想要的，所以是client_isn+1，我想要你的第二个序列号
   - 第三次握手：seq就是client_isn+1，给你你要的，同时我也要setver_isn+1，且此时SYN为0
 

@@ -5,6 +5,7 @@ subtitle:   Sliding Window Protocol
 date:       2019-12-16
 author:     Chase Gu
 header-img: img/post-bg-os-metro.jpg
+hide: false
 catalog: true
 tags:
     - 学习笔记
@@ -47,7 +48,7 @@ tags:
   - 窗口尺寸为N：最多有N个等待确认的消息
 - 滑动窗口
   - 随着协议的运行，窗口在序列号空间向前滑动
-  - ![滑动窗口1](/img-post/2019-12-22-network-sliding-window-protocol/滑动窗口1.png)
+  - <a href="/img-post/2019-12-22-network-sliding-window-protocol/滑动窗口1.png">![滑动窗口1](/img-post/2019-12-22-network-sliding-window-protocol/滑动窗口1.png)</a>
   - 绿色：已确认的**序列号**
   - 黄色：已发送、未确认的**序列号**
   - 蓝色：可用**序列号**
@@ -85,7 +86,7 @@ tags:
 
 - **状态机（花里胡哨的，看状态机就好了）**
 
-  ![GBN状态机](/img-post/2019-12-22-network-sliding-window-protocol/GBN状态机.png)
+  <a href="/img-post/2019-12-22-network-sliding-window-protocol/GBN状态机.png">![GBN状态机](/img-post/2019-12-22-network-sliding-window-protocol/GBN状态机.png)</a>
 
 - 收到ACK之后
 
@@ -144,7 +145,7 @@ tags:
   - 红色：乱序到达
   - 蓝色：可接收的序列号范围
 
-  ![SR滑动窗口](/img-post/2019-12-22-network-sliding-window-protocol/SR滑动窗口.png)
+  <a href="/img-post/2019-12-22-network-sliding-window-protocol/SR滑动窗口.png">![SR滑动窗口](/img-post/2019-12-22-network-sliding-window-protocol/SR滑动窗口.png)</a>
 
 - **接收方和发送方窗口不是同步的**
 
@@ -173,7 +174,7 @@ tags:
 
 ### 困境
 
-- ![SR困境](/img-post/2019-12-22-network-sliding-window-protocol/SR困境.png)
+- <a href="/img-post/2019-12-22-network-sliding-window-protocol/SR困境.png">![SR困境](/img-post/2019-12-22-network-sliding-window-protocol/SR困境.png)</a>
 - **这两个序列号0的分组不是同一个分组！**
 - **发送方尺寸+接收方尺寸 <= 序列号数量**，k为序列号位数，即共2^k个序列号
 

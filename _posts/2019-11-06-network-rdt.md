@@ -5,6 +5,7 @@ subtitle:   Reliable Data Transmission
 date:       2019-11-06
 author:     Chase Gu
 header-img: img/post-bg-os-metro.jpg
+hide: false
 catalog: true
 tags:
     - 学习笔记
@@ -41,7 +42,7 @@ tags:
 
     再上面称之为段(Segment)
 
-* ![可靠数据传输1](/img-post/2019-12-20-network-rdt/可靠数据传输1.png)
+* <a href="/img-post/2019-12-20-network-rdt/可靠数据传输1.png">![可靠数据传输1](/img-post/2019-12-20-network-rdt/可靠数据传输1.png)</a>
 
   * rdt_send() 和 deliver_data() 都是单向的
   * udt_send() 和 rdt_rcv() 都是双向的
@@ -109,11 +110,11 @@ tags:
 
   * 发送方
 
-  ![rdt2.1发送方有限状态机](/img-post/2019-12-20-network-rdt/rdt2.1发送方有限状态机.png)
+  <a href="/img-post/2019-12-20-network-rdt/rdt2.1发送方有限状态机.png">![rdt2.1发送方有限状态机](/img-post/2019-12-20-network-rdt/rdt2.1发送方有限状态机.png)</a>
 
   * 接收方：应对ACK/NAK破坏
 
-  ![rdt2.1接收方有限状态机](/img-post/2019-12-20-network-rdt/rdt2.1接收方有限状态机.png)
+  <a href="/img-post/2019-12-20-network-rdt/rdt2.1接收方有限状态机.png">![rdt2.1接收方有限状态机](/img-post/2019-12-20-network-rdt/rdt2.1接收方有限状态机.png)</a>
 
   * 分组坏掉了：NAK
 
