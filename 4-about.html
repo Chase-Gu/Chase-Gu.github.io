@@ -1,9 +1,23 @@
 ---
 layout: page
 title: "About"
-description: "Chase Gu's Blog"
+description: "This is Chase Gu"
 header-img: "img/post-bg-rwd.jpg"
 ---
+
+<style>
+  img.about-portrait {
+    width: 120px;
+    border-radius: 10px;
+    margin-right: 20px;
+    float: left;
+  }
+
+  .about-title {
+    align-items: center;
+    text-align: center;
+  }
+</style>
 
 <!-- Language Selector -->
 <!-- <select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
@@ -13,12 +27,28 @@ header-img: "img/post-bg-rwd.jpg"
 
 <!-- Chinese Version -->
 <div class="zh post-container">
-    
-    <p>Hello!</p>
-    <p>Thanks for browsing my blog!</p>
+  <h3 class="about-title">一个不正规的介绍</h3>
+  <hr>
+  <img class="about-portrait" src="{{site.url}}/img/avatar-chase-tokuten.gif" alt="←这是一个表情包">
+  <p>Hello! 这里是Chase Gu，一名天津大学软件工程专业本科在读<del> 学生 </del>废物。</p>
+  <p>整这个博客，最初的想法是可以把一些上课记录的笔记放在上面，这样可以随时看到。（毕竟有一个属于自己的博客也是一件令人激动的事情不是嘛？）
+    后来想想，也不准备把它变成一个只记录技术的博客（因为是FW），想把生活中各种点滴都放上。</p>
+  <p>平时喜欢画点小画、唱点小歌。
+    初高中的时候看看动漫，所以很多画都是那个时候临摹喜欢的角色的，也打算日后有时间也放在博客hhh（手残望轻喷）。</p>
+  <p>然后就没有了。感谢来浏览我的博客！OvO</p>
 
-    <p></p>
-    
+  <br>
+  <h3 class="about-title">其他</h3>
+  <hr>
+  <p>最近在做一个关于Java虚拟机GC可视化的大创。</p>
+  <p>最终目标是实现对Java对象的分配、移动以及释放进行追踪，可视化地显示对象在堆中的详细位置（Eden、Survivor或者老年代）。
+    目前进展主要在JVMTI，后端尚不完善，前端目前仅有一个我暑假刚开始学HTML、CSS的时候使用原生JS写的屎山样例。</p>
+  <p>感兴趣的话可以来看看呀：</p>
+  <ul>
+    <li><a href="https://gitee.com/gushichen/JVMTI.git" target="_blank">JVMTI</a></li>
+    <li><a href="https://gitee.com/gushichen/Tracker_back.git" target="_blank">Tracker_back 后端</a></li>
+    <li><a href="https://gitee.com/gushichen/Tracker_web.git" target="_blank">Tracker_web 前端</a></li>
+  </ul>
 </div>
 
 <!-- English Version -->
@@ -43,44 +73,44 @@ header-img: "img/post-bg-rwd.jpg"
 </div> -->
 
 <!-- Handle Language Change -->
-<script type="text/javascript">
-    // get nodes
-    var $zh = document.querySelector(".zh");
-    var $en = document.querySelector(".en");
-    var $select = document.querySelector("select");
+<!-- <script type="text/javascript">
+  // get nodes
+  var $zh = document.querySelector(".zh");
+  var $en = document.querySelector(".en");
+  var $select = document.querySelector("select");
 
-    // bind hashchange event
-    window.addEventListener('hashchange', _render);
+  // bind hashchange event
+  window.addEventListener('hashchange', _render);
 
-    // handle render
-    function _render(){
-        var _hash = window.location.hash;
-        // en
-        if(_hash == "#en"){
-            $select.selectedIndex = 1;
-            $en.style.display = "block";
-            $zh.style.display = "none";
-        // zh by default
-        }else{
-            // not trigger onChange, otherwise cause a loop call.
-            $select.selectedIndex = 0;
-            $zh.style.display = "block";
-            $en.style.display = "none";
-        }
+  // handle render
+  function _render() {
+    var _hash = window.location.hash;
+    // en
+    if (_hash == "#en") {
+      $select.selectedIndex = 1;
+      $en.style.display = "block";
+      $zh.style.display = "none";
+      // zh by default
+    } else {
+      // not trigger onChange, otherwise cause a loop call.
+      $select.selectedIndex = 0;
+      $zh.style.display = "block";
+      $en.style.display = "none";
     }
+  }
 
-    // handle select change
-    function onLanChange(index){
-        if(index == 0){
-            window.location.hash = "#zh"
-        }else{
-            window.location.hash = "#en"
-        }
+  // handle select change
+  function onLanChange(index) {
+    if (index == 0) {
+      window.location.hash = "#zh"
+    } else {
+      window.location.hash = "#en"
     }
+  }
 
-    // init
-    _render();
-</script>
+  // init
+  _render();
+</script> -->
 
 
 <!-- Gitalk 评论 start
@@ -105,28 +135,29 @@ header-img: "img/post-bg-rwd.jpg"
 {% endif %}
 Gitalk end -->
 
- <!-- disqus 评论框 start  -->
+<!-- disqus 评论框 start  -->
 {% if site.disqus.enable %}
 
 <div class="comment">
-    <div id="disqus_thread" class="disqus-thread">
-    </div>
+  <div id="disqus_thread" class="disqus-thread">
+  </div>
 </div>
 <!-- disqus 评论框 end -->
 
 <!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = "{{site.disqus.username}}";
-    var disqus_identifier = "{{site.disqus.username}}/{{page.url}}";
-    var disqus_url = "{{site.url}}{{page.url}}";
+  /* * * CONFIGURATION VARIABLES * * */
+  var disqus_shortname = "{{site.disqus.username}}";
+  var disqus_identifier = "{{site.disqus.username}}/{{page.url}}";
+  var disqus_url = "{{site.url}}{{page.url}}";
 
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
+  (function () {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
 </script>
 <!-- disqus 公共JS代码 end -->
 {% endif %}
-
