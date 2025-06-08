@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地球online每日任务bingo</title>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <style>
+        unselectable {
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* 标准语法 */
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Microsoft YaHei', sans-serif;
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* 标准语法 */
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            text-shadow: 0 0 10px #00ff55, 0 0 20px #00cc44;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: #aaffaa;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+        
+        .bingo-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin: 20px 0;
+        }
+        
+        .bingo-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            width: 90vmin;
+            height: 90vmin;
+            max-width: 600px;
+            max-height: 600px;
+            margin: 0 auto;
+        }
+        
+        .cell {
+            aspect-ratio: 1;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8px;
+            font-size: calc(10px + 0.5vmin);
+            cursor: pointer;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            color: #e0e0e0;
+            font-weight: 500;
+            user-select: none;
+            word-break: break-word;
+        }
+        
+        .cell:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+        
+        /* 新增：颜色渐变动画关键帧 */
+        @keyframes colorTransition {
+            0% {
+                background-color: rgba(255, 255, 255, 0.15);
+                color: #e0e0e0;
+            }
+            100% {
+                background-color: #00a843;
+                color: #fff;
+            }
+        }
+        
+        .cell.completed {
+            /* 应用渐变动画 */
+            animation: colorTransition 1s ease forwards;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 200, 83, 0.4);
+        }
+        
+        .cell.completed::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        button {
+            background: linear-gradient(to right, #4CAF50, #2E7D32);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(to right, #66BB6A, #388E3C);
+        }
+        
+        button:active {
+            transform: translateY(1px);
+        }
+        
+        #resetBtn {
+            background: linear-gradient(to right, #f44336, #d32f2f);
+        }
+        
+        #resetBtn:hover {
+            background: linear-gradient(to right, #ef5350, #e53935);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            .subtitle {
+                font-size: 0.8rem;
+            }
+            
+            .cell {
+                font-size: calc(9px + 0.5vmin);
+                padding: 6px;
+            }
+            
+            .bingo-grid {
+                gap: 6px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1rem;
+            }
+
+            .subtitle {
+                font-size: 0.6rem;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            button {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .cell {
+                font-size: calc(8px + 0.5vmin);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="captureArea">
+        <header>
+            <h1>地球online每日任务bingo</h1>
+            <p class="subtitle">不管勾选了几个，反正恭喜你又活了一天！</p>
+        </header>
+        
+        <div class="bingo-container">
+            <div class="bingo-grid" id="bingoGrid">
+                <!-- 网格单元格将通过JavaScript动态生成 -->
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button id="saveBtn">保存今日成就</button>
+            <button id="resetBtn">重置所有任务</button>
+        </div>
+    </div>
+
+    <script>
+        // 地球online每日任务列表
+        const tasks = [
+            "按时吃了早餐",
+            "散步",
+            "喝了足够的水",
+            "没有熬夜",
+            "没有沉迷刷手机",
+            "骂学校或工作",
+            "制定了今日计划",
+            "保证了足量的社交",
+            "按时吃了晚餐",
+            "听歌",
+            "看书",
+            "做了自己喜欢的事",
+            "把自己的感受放在第一位",
+            "打扫或整理了房间",
+            "摸了小动物",
+            "写了日记",
+            "对别人的否定说去他妈的",
+            "完成了今日工作",
+            "没有吃垃圾食品",
+            "坚持没有精神崩溃",
+            "扔垃圾",
+            "按时吃了午餐",
+            "保持身体健康",
+            "保持思考",
+            "按时起床"
+        ];
+        
+        // 初始化Bingo网格
+        const bingoGrid = document.getElementById('bingoGrid');
+        
+        // 创建网格单元格
+        function createGrid() {
+            // 清空现有网格
+            bingoGrid.innerHTML = '';
+            
+            // 使用原始任务顺序
+            const originalTasks = tasks;
+            
+            // 创建5x5网格
+            for (let i = 0; i < 25; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'cell unselectable';
+                cell.textContent = originalTasks[i];
+                
+                // 检查本地存储中是否有完成状态
+                const taskCompleted = localStorage.getItem(`task_${i}`);
+                if (taskCompleted === 'true') {
+                    cell.classList.add('completed');
+                }
+                
+                // 添加点击事件（移除了缩放效果）
+                cell.addEventListener('click', function() {
+                    // 直接切换完成状态
+                    this.classList.toggle('completed');
+                    
+                    // 保存状态到本地存储
+                    localStorage.setItem(`task_${i}`, this.classList.contains('completed'));
+                });
+                
+                bingoGrid.appendChild(cell);
+            }
+        }
+        
+        // 保存为图片功能
+        document.getElementById('saveBtn').addEventListener('click', function() {
+            // 显示保存中状态
+            const originalText = this.textContent;
+            this.textContent = "保存中...";
+            this.disabled = true;
+            
+            // 临时隐藏按钮
+            document.querySelector('.controls').style.display = 'none';
+            
+            // 使用html2canvas将内容转为图片
+            html2canvas(document.getElementById('captureArea'), {
+                scale: 2,
+                backgroundColor: null, // 保持透明背景
+                ignoreElements: (element) => {
+                    // 忽略按钮区域
+                    return element.classList.contains('controls');
+                }
+            }).then(canvas => {
+                // 创建下载链接
+                const link = document.createElement('a');
+                const date = new Date();
+                const dateStr = `${date.getFullYear()}${(date.getMonth()+1).toString().padStart(2, '0')}${date.getDate().toString().padStart(2, '0')}`;
+                
+                link.download = `地球Online_Bingo_${dateStr}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                
+                // 恢复按钮状态
+                this.textContent = originalText;
+                this.disabled = false;
+                document.querySelector('.controls').style.display = '';
+            }).catch(error => {
+                console.error('保存失败:', error);
+                alert('保存失败，请重试');
+                this.textContent = originalText;
+                this.disabled = false;
+                document.querySelector('.controls').style.display = '';
+            });
+        });
+        
+        // 重置功能
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            if (confirm('确定要重置所有任务吗？')) {
+                // 清除所有本地存储的任务状态
+                for (let i = 0; i < 25; i++) {
+                    localStorage.removeItem(`task_${i}`);
+                }
+                
+                // 重新创建网格
+                createGrid();
+            }
+        });
+        
+        // 页面加载时初始化网格
+        window.addEventListener('DOMContentLoaded', createGrid);
+        
+        // 确保网格在窗口大小变化时保持正方形
+        window.addEventListener('resize', function() {
+            const grid = document.querySelector('.bingo-grid');
+            grid.style.width = '';
+            grid.style.height = '';
+        });
+    </script>
+</body>
+</html>
